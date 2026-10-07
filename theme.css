@@ -1,0 +1,118 @@
+/* التنسيق العام لصفحة المتجر وشبكة المنتجات */
+.shop-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.collection-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* تصميم شبكة المنتجات (4 منتجات في الكمبيوتر، منتجين في الهاتف) */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* متجاوب مع الهواتف الذكية */
+        gap: 10px;
+    }
+}
+
+/* تنسيق كارت المنتج الفردي */
+.product-card {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.product-image-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.product-title a {
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* تنسيق الأسعار */
+.product-price {
+    margin: 10px 0;
+}
+.price-regular, .price-sale {
+    font-weight: bold;
+    color: #8B7355; /* لون ذهبي مناسب لمتاجر العطور الفاخرة */
+    font-size: 16px;
+}
+.price-old {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+/* تنسيق أزرار الشراء والطلب */
+.btn-add-to-cart {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #8B7355;
+}
+
+.btn-sold-out {
+    background-color: #eee;
+    color: #999;
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: not-allowed;
+}
+
+/* أرقام الصفحات */
+.pagination {
+    text-align: center;
+    margin-top: 40px;
+}
+

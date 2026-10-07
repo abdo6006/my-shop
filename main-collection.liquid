@@ -1,1 +1,62 @@
+{% comment %}
+  كود ديناميكي لعرض شبكة المنتجات (العطور) مثل صفحة AuraLuna
+{% endcomment %}
+
+<div class="shop-container">
+  <header class="collection-header">
+    <h1>{{ collection.title | default: "جميع العطور والمستحضرات" }}</h1>
+    <p class="collection-description">{{ collection.description }}</p>
+  </header>
+
+  {% paginate collection.products by 16 %}
+    <div class="products-grid">
+      {% for product in collection.products %}
+        <div class="product-card">
+          <!-- صورة المنتج المرفوعة -->
+          <a href="{{ product.url }}" class="product-image-link">
+            <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" loading="lazy">
+          </a>
+
+          <!-- تفاصيل المنتج وعنوانه -->
+          <div class="product-info">
+            <h3 class="product-title">
+              <a href="{{ product.url }}">{{ product.title }}</a>
+            </h3>
+            
+            <!-- عرض السعر والخصومات بالعملة المحلية (الدرهم المغربي) -->
+            <div class="product-price">
+              {% if product.compare_at_price > product.price %}
+                <span class="price-old">{{ product.compare_at_price | money }}</span>
+                <span class="price-sale">{{ product.price | money }}</span>
+              {% else %}
+                <span class="price-regular">{{ product.price | money }}</span>
+              {% endif %}
+            </div>
+
+            <!-- زر إضافة إلى السلة أو نفدت الكمية -->
+            <div class="product-action">
+              {% if product.available %}
+                <form method="post" action="/cart/add">
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                  <button type="submit" class="btn-add-to-cart">أضف إلى السلة</button>
+                </form>
+              {% else %}
+                <button class="btn-sold-out" disabled>نفدت الكمية</button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <p class="no-products">لم يتم العثور على أي عطور في هذه المجموعة حالياً.</p>
+      {% endfor %}
+    </div>
+
+    <!-- كود التنقل بين الصفحات (Pagination) -->
+    {% if paginate.pages > 1 %}
+      <div class="pagination">
+        {{ paginate | default_pagination }}
+      </div>
+    {% endif %}
+  {% endpaginate %}
+</div>
 
