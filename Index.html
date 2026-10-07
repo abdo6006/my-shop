@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر العطور والمستحضرات</title>
+    <style>
+        /* كود التصميم والتنسيق */
+        body { font-family: 'Arial', sans-serif; background-color: #f9f9f9; margin: 0; padding: 0; }
+        .shop-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .collection-header { text-align: center; margin-bottom: 40px; }
+        .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        @media (max-width: 992px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 576px) { .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+        .product-card { background: #ffffff; border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; text-align: center; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-card img { width: 100%; height: auto; object-fit: cover; }
+        .product-title { font-size: 16px; color: #333; margin: 10px 0; }
+        .product-price { font-weight: bold; color: #8B7355; font-size: 16px; margin-bottom: 15px; }
+        .btn-add-to-cart { background-color: #222; color: #fff; border: none; padding: 10px 15px; width: 100%; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .btn-add-to-cart:hover { background-color: #8B7355; }
+    </style>
+</head>
+<body>
+
+<div class="shop-container">
+    <header class="collection-header">
+        <h1>أحدث العطور المستوحاة</h1>
+        <p>اكتشف تشكيلتنا الحصرية من العطور الفاخرة</p>
+    </header>
+
+    <div class="products-grid">
+        <!-- عطر تجريبي 1 -->
+        <div class="product-card">
+            <img src="https://unsplash.com" alt="عطر">
+            <h3 class="product-title">عطر Aura Luna الذهبي</h3>
+            <div class="product-price">399 درهم مغربي</div>
+            <button class="btn-add-to-cart">طلب عبر الواتساب</button>
+        </div>
+        <!-- عطر تجريبي 2 -->
+        <div class="product-card">
+            <img src="https://unsplash.com" alt="عطر">
+            <h3 class="product-title">عطر لونا الليلي</h3>
+            <div class="product-price">349 درهم مغربي</div>
+            <button class="btn-add-to-cart">طلب عبر الواتساب</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
